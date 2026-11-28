@@ -73,5 +73,5 @@ catedra-jgh/
 
 ## Entregables Complementarios
 
-* **Prototipo en Figma:** *(Pega aquí el enlace a tu diseño en Figma)*
-* **Video Explicativo:** *(Pega aquí el enlace a tu video explicativo)*
+* **Prototipo en Figma:** *(https://www.figma.com/design/fxNYzAiq1N5LGrqf4hzQqf/Sin-t%C3%ADtulo?node-id=0-1&m=dev&t=xHgfTcNiQ4KoKV3B-1)*
+* **Video Explicativo en Youtube:** *(https://www.youtube.com/watch?v=5w0q0jsymmQ)*
