@@ -26,17 +26,17 @@ export default function App() {
     const [notificacion, setNotificacion] = useState('');
     const bannerNotifRef = useRef(null);
 
-    // Sincronizar con localStorage y actualizar titulo del documento (DOM)
+    // Sincronizar con localStorage y actualizar título del documento (DOM)
     useEffect(() => {
         try {
             window.localStorage.setItem(STORAGE_KEY, JSON.stringify(fichas));
         } catch (error) {
             console.error('Error al guardar en localStorage:', error);
         }
-        document.title = `Catedra Dr. Jose Gregorio Hernandez (${fichas.length} registros)`;
+        document.title = `Cátedra Dr. José Gregorio Hernández (${fichas.length} registros)`;
     }, [fichas]);
 
-    // Mostrar aviso temporal manipulando clase/visibilidad del DOM
+    // Mostrar aviso temporal manipulando atributos del DOM
     const mostrarAviso = (texto) => {
         setNotificacion(texto);
         if (bannerNotifRef.current) {
@@ -70,7 +70,7 @@ export default function App() {
                 id: `ficha-${Date.now()}`
             };
             setFichas((prev) => [nuevaFicha, ...prev]);
-            mostrarAviso('Nuevo registro agregado a la bitacora.');
+            mostrarAviso('Nuevo registro agregado a la bitácora.');
         }
     };
 
@@ -79,17 +79,17 @@ export default function App() {
         if (fichaEditando && fichaEditando.id === id) {
             setFichaEditando(null);
         }
-        mostrarAviso('Registro eliminado de la bitacora.');
+        mostrarAviso('Registro eliminado de la bitácora.');
     };
 
     const manejarRestaurarDemo = () => {
         const confirmar = window.confirm(
-            'Deseas restaurar los 5 registros de ejemplo iniciales de la catedra?'
+            '¿Deseas restaurar los 5 registros de ejemplo iniciales de la cátedra?'
         );
         if (confirmar) {
             setFichas(FICHAS_INICIALES);
             setFichaEditando(null);
-            mostrarAviso('Datos iniciales de la catedra restaurados.');
+            mostrarAviso('Datos iniciales de la cátedra restaurados.');
         }
     };
 
@@ -97,11 +97,27 @@ export default function App() {
         <div className="app-shell">
             <header className="hero-catedra">
                 <div className="contenedor hero-contenido">
-                    <span className="badge-catedra">Catedra Libre Universitaria</span>
-                    <h1>Catedra Dr. Jose Gregorio Hernandez</h1>
-                    <p>
-                        Bitacora interactiva de aportes cientificos, valores humanitarios, testimonios y memoria historica.
-                    </p>
+                    <div className="hero-texto">
+                        <span className="badge-catedra">Cátedra Libre Universitaria</span>
+                        <h1>Cátedra Dr. José Gregorio Hernández</h1>
+                        <p>
+                            Bitácora interactiva de aportes científicos, valores humanitarios, testimonios y memoria histórica.
+                        </p>
+
+                        <nav className="nav-catedra" aria-label="Navegación principal">
+                            <a href="#titulo-form-catedra">Registrar ficha</a>
+                            <a href="#titulo-listado-catedra">Bitácora ({fichas.length})</a>
+                            <a href="#titulo-html5-guia">Ejemplos HTML5</a>
+                        </nav>
+                    </div>
+
+                    <figure className="hero-retrato">
+                        <img
+                            src="imagen/imagen.jpg"
+                            alt="Retrato del Dr. José Gregorio Hernández"
+                        />
+                        <figcaption>Dr. José Gregorio Hernández (1864–1919)</figcaption>
+                    </figure>
                 </div>
             </header>
 
@@ -115,7 +131,7 @@ export default function App() {
                 {notificacion}
             </div>
 
-           <main className="contenedor layout-principal">
+            <main className="contenedor layout-principal">
                 <FichaForm
                     onGuardar={manejarGuardar}
                     fichaEditando={fichaEditando}
@@ -135,7 +151,7 @@ export default function App() {
             <footer className="footer-catedra">
                 <div className="contenedor">
                     <p>
-                        Proyecto Academico · Catedra Dr. Jose Gregorio Hernandez · Persistencia local con API localStorage y ReactJS.
+                        Proyecto Académico · Cátedra Dr. José Gregorio Hernández · Persistencia local con API localStorage y ReactJS.
                     </p>
                 </div>
             </footer>

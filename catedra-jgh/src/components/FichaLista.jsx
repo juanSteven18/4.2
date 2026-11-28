@@ -21,7 +21,7 @@ export default function FichaLista({ fichas, onEditar, onEliminar, onRestaurarDe
 
     const confirmarEliminacion = (ficha) => {
         const aceptado = window.confirm(
-            `Deseas eliminar el registro "${ficha.titulo}" de la bitacora?`
+            `¿Deseas eliminar el registro "${ficha.titulo}" de la bitácora?`
         );
         if (aceptado) {
             onEliminar(ficha.id);
@@ -32,7 +32,7 @@ export default function FichaLista({ fichas, onEditar, onEliminar, onRestaurarDe
         <section className="panel-listado" aria-labelledby="titulo-listado-catedra">
             <div className="listado-cabecera">
                 <div>
-                    <h2 id="titulo-listado-catedra">Registros de la Bitacora ({fichasFiltradas.length})</h2>
+                    <h2 id="titulo-listado-catedra">Registros de la Bitácora ({fichasFiltradas.length})</h2>
                     <p>Consulta, filtra, actualiza o elimina fichas almacenadas en localStorage.</p>
                 </div>
 
@@ -45,13 +45,13 @@ export default function FichaLista({ fichas, onEditar, onEliminar, onRestaurarDe
                 <input
                     type="search"
                     className="input-busqueda"
-                    placeholder="Buscar por titulo, ano, lugar o palabra clave..."
+                    placeholder="Buscar por título, año, lugar o palabra clave..."
                     value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
                     aria-label="Buscar fichas"
                 />
 
-                <div className="pills-categorias" role="group" aria-label="Filtrar por eje tematico">
+                <div className="pills-categorias" role="group" aria-label="Filtrar por eje temático">
                     <button
                         type="button"
                         className={`pill-btn ${categoriaFiltro === 'Todas' ? 'activo' : ''}`}

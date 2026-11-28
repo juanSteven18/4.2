@@ -14,7 +14,7 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
     const [formulario, setFormulario] = useState(ESTADO_VACIO);
     const [errorForm, setErrorForm] = useState('');
 
-    // Referencias para manipulacion directa del DOM
+    // Referencias para manipulación directa del DOM
     const formRef = useRef(null);
     const inputTituloRef = useRef(null);
 
@@ -30,7 +30,7 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
             });
             setErrorForm('');
 
-            // Manipulacion del DOM
+            // Manipulación del DOM
             if (formRef.current) {
                 formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -55,7 +55,7 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
         e.preventDefault();
 
         if (!formulario.titulo.trim() || !formulario.anio.trim() || !formulario.descripcion.trim()) {
-            setErrorForm('Por favor completa el titulo, el ano o fecha y la descripcion de la ficha.');
+            setErrorForm('Por favor completa el título, el año o fecha y la descripción de la ficha.');
             if (inputTituloRef.current) {
                 inputTituloRef.current.focus();
             }
@@ -66,7 +66,7 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
             ...formulario,
             titulo: formulario.titulo.trim(),
             anio: formulario.anio.trim(),
-            lugarFuente: formulario.lugarFuente.trim() || 'Archivo de la Catedra',
+            lugarFuente: formulario.lugarFuente.trim() || 'Archivo de la Cátedra',
             descripcion: formulario.descripcion.trim()
         });
 
@@ -82,9 +82,9 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
         <section ref={formRef} className="panel-formulario" aria-labelledby="titulo-form-catedra">
             <header className="panel-header">
                 <h2 id="titulo-form-catedra">
-                    {fichaEditando ? 'Editar Registro de la Bitacora' : 'Nuevo Registro en la Bitacora'}
+                    {fichaEditando ? 'Editar Registro de la Bitácora' : 'Nuevo Registro en la Bitácora'}
                 </h2>
-                <p>Documenta aportes cientificos, valores, testimonios o hechos vinculados al Dr. Jose Gregorio Hernandez.</p>
+                <p>Documenta aportes científicos, valores, testimonios o hechos vinculados al Dr. José Gregorio Hernández.</p>
             </header>
 
             {errorForm && (
@@ -95,7 +95,7 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
 
             <form onSubmit={manejarEnvio} className="form-grid" noValidate>
                 <div className="campo-grupo campo-completo">
-                    <label htmlFor="titulo">Titulo del registro *</label>
+                    <label htmlFor="titulo">Título del registro *</label>
                     <input
                         ref={inputTituloRef}
                         type="text"
@@ -103,13 +103,13 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
                         name="titulo"
                         value={formulario.titulo}
                         onChange={manejarCambio}
-                        placeholder="Ej. Tratado Elementos de Bacteriologia"
+                        placeholder="Ej. Tratado Elementos de Bacteriología"
                         required
                     />
                 </div>
 
                 <div className="campo-grupo">
-                    <label htmlFor="categoria">Eje tematico *</label>
+                    <label htmlFor="categoria">Eje temático *</label>
                     <select
                         id="categoria"
                         name="categoria"
@@ -123,7 +123,7 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
                 </div>
 
                 <div className="campo-grupo">
-                    <label htmlFor="anio">Ano o fecha *</label>
+                    <label htmlFor="anio">Año o fecha *</label>
                     <input
                         type="text"
                         id="anio"
@@ -143,19 +143,19 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
                         name="lugarFuente"
                         value={formulario.lugarFuente}
                         onChange={manejarCambio}
-                        placeholder="Ej. Hospital Vargas / Isnotu / Archivo Universitario"
+                        placeholder="Ej. Hospital Vargas / Isnotú / Archivo Universitario"
                     />
                 </div>
 
                 <div className="campo-grupo campo-completo">
-                    <label htmlFor="descripcion">Descripcion / Relato de la ficha *</label>
+                    <label htmlFor="descripcion">Descripción / Relato de la ficha *</label>
                     <textarea
                         id="descripcion"
                         name="descripcion"
                         rows="4"
                         value={formulario.descripcion}
                         onChange={manejarCambio}
-                        placeholder="Redacta el contexto, el aporte academico, el testimonio o la reflexion de la catedra..."
+                        placeholder="Redacta el contexto, el aporte académico, el testimonio o la reflexión de la cátedra..."
                         required
                     />
                 </div>
@@ -173,12 +173,12 @@ export default function FichaForm({ onGuardar, fichaEditando, onCancelarEdicion 
 
                 <div className="acciones-form campo-completo">
                     <button type="submit" className="btn-primario">
-                        {fichaEditando ? 'Guardar Cambios' : 'Registrar en Bitacora'}
+                        {fichaEditando ? 'Guardar Cambios' : 'Registrar en Bitácora'}
                     </button>
 
                     {fichaEditando && (
                         <button type="button" className="btn-secundario" onClick={onCancelarEdicion}>
-                            Cancelar Edicion
+                            Cancelar Edición
                         </button>
                     )}
                 </div>
